@@ -9,7 +9,15 @@ function App() {
       <h2 className={number >= 0 ? "positive" : "negative"}>
         {  number >= 0 ? "Positivo" : "Negativo"}
       </h2>
-      <input type="text" name="number" value={number} onChange={(event) => setNumber(event.target.value)} />
+      <input type="number" name="number" value={number} onChange={({ target }) => setNumber(target.value)} />
+      <ul>
+        {Array.from({ length: 11 }).map((_, i) => (
+          <li>
+            {number} x {i} = <strong>{number * i}</strong>
+          </li>
+        ))}
+      </ul>
+      
     </>
   );
 }
